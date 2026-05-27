@@ -21,12 +21,12 @@ const HERO_URL = "https://i.ibb.co/YBbfCPcX/Chat-GPT-Image-May-27-2026-03-48-52-
 const MANIFESTO_URL = "https://i.ibb.co/xSpRN2Q3/Whats-App-Image-2026-05-27-at-10-24-39-PM.jpg";
 
 export const heroPortrait = {
-  src: img(HERO_URL),
+  src: HERO_URL,
   alt: "Sanjay - Creative Generalist",
 };
 
 export const manifestoImage = {
-  src: img(MANIFESTO_URL),
+  src: MANIFESTO_URL,
   alt: "Manifesto - Sanjay's studio",
 };
 

@@ -634,10 +634,10 @@
     width: fit-content;
     max-width: 430px;
     margin-bottom: 1.35rem;
-    padding: 0.82rem 1.6rem;
+    padding: 0.82rem 2.2rem;
     background: var(--red-dark);
     color: var(--paper-light);
-    clip-path: polygon(0 0, 100% 0, 92% 50%, 100% 100%, 0 100%, 8% 50%);
+    clip-path: polygon(0 0, 100% 0, calc(100% - 1.25rem) 50%, 100% 100%, 0 100%, 1.25rem 50%);
     filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.26));
     font-size: 0.88rem;
     font-weight: 900;
@@ -1362,10 +1362,8 @@
 
   .post-placeholder {
     position: relative;
-    min-height: 230px;
-    display: grid;
-    place-items: end stretch;
-    padding: 0.85rem;
+    display: block;
+    overflow: hidden;
     border-radius: 10px;
     color: var(--paper-light);
     background:
@@ -1927,7 +1925,7 @@
 
   .ribbon {
     width: 100%;
-    padding: 0.8rem 1.2rem;
+    padding: 0.8rem 2.2rem;
   }
 
   .polaroid {

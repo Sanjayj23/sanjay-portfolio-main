@@ -26,5 +26,5 @@ export const imageSrc = {
 };
 
 export function img(url) {
-  return imageSrc[url] ?? url;
+  return url;
 }
