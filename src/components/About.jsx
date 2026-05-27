@@ -40,7 +40,7 @@ export function About() {
           <div className="quote-strip">
             <div className="vertical-note">Why it works</div>
             <blockquote>
-              "I don't just use creative tools. I understand why something is beautiful - and that changes everything."
+              "I believe visual taste is independent of tools. Whether working with charcoal or AI, the goal is always to create something that resonates."
             </blockquote>
           </div>
         </Paper>

@@ -369,11 +369,11 @@
 
   .card-corner-doodle {
     position: absolute;
-    z-index: 6;
+    z-index: 1;
     width: 52px;
     height: 52px;
     color: var(--terracotta);
-    opacity: 0.48;
+    opacity: 0.22;
     pointer-events: none;
   }
 
@@ -392,7 +392,7 @@
     top: 14px;
     width: 44px;
     height: 44px;
-    opacity: 0.4;
+    opacity: 0.16;
   }
 
   .card-corner-doodle-tl {
@@ -400,7 +400,7 @@
     top: 16px;
     width: 48px;
     height: 48px;
-    opacity: 0.42;
+    opacity: 0.18;
   }
 
   .card-corner-doodle-bl {
@@ -408,7 +408,7 @@
     bottom: 12px;
     width: 40px;
     height: 40px;
-    opacity: 0.44;
+    opacity: 0.18;
   }
 
   .title-squiggle {
@@ -835,6 +835,8 @@
   }
 
   .about-paper p {
+    position: relative;
+    z-index: 2;
     margin: 0;
     color: #2b1a12;
     font-size: 0.98rem;
@@ -842,6 +844,8 @@
   }
 
   .quote-strip {
+    position: relative;
+    z-index: 2;
     margin-top: 1.45rem;
     display: grid;
     grid-template-columns: auto 1fr;
@@ -1610,6 +1614,8 @@
   }
 
   .motion-body {
+    position: relative;
+    z-index: 2;
     padding: 1rem 0.25rem 0.1rem;
   }
 
