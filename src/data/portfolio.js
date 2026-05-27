@@ -17,7 +17,7 @@ export const chips = [
   "National Gold Medalist - Kalakriti SOA",
 ];
 
-const HERO_URL = "https://ibb.co/3mkS34pv";
+const HERO_URL = "https://i.ibb.co/YBbfCPcX/Chat-GPT-Image-May-27-2026-03-48-52-PM.png";
 const MANIFESTO_URL = "https://i.ibb.co/xSpRN2Q3/Whats-App-Image-2026-05-27-at-10-24-39-PM.jpg";
 
 export const heroPortrait = {
@@ -124,32 +124,32 @@ export const workGroups = [
     label: "01 - Traditional Art",
     columns: "work-grid",
     works: [
-      ["Shiva & Parvati", "Shiva and Parvati in charcoal - two faces, one sheet of stillness. Power and grace held in the same breath; devotion drawn without spectacle.", "https://i.ibb.co/pv2qGgK3"],
-      ["Untitled Portrait", "Ballpoint on paper - no washes, only thousands of strokes building a face from quiet. Light arrives one patient line at a time.", "https://i.ibb.co/ympR6GJB"],
-      ["The Embrace", "Sketchbook charcoal - two figures folded into each other. Comfort and ache share the same smudged shadow; tenderness drawn without softening the weight.", "https://i.ibb.co/5h9gMSJW"],
-      ["Blindfolded", "Charcoal portrait cut through by a strip of white - sight withheld, feeling turned up. The blindfold reads like silence made visible.", "https://i.ibb.co/pv2dFmJ6"],
-      ["Dissolution", "Hyperrealistic charcoal pushed to its ceiling - likeness held until the borders begin to fray. Craft shown in how beautifully the face is allowed to come apart.", "https://i.ibb.co/3yWVpN05"],
+      ["Shiva & Parvati", "Shiva and Parvati in charcoal - two faces, one sheet of stillness. Power and grace held in the same breath; devotion drawn without spectacle.", "https://i.ibb.co/6RYQV2t4/Chat-GPT-Image-May-27-2026-07-11-10-PM.png"],
+      ["Untitled Portrait", "Ballpoint on paper - no washes, only thousands of strokes building a face from quiet. Light arrives one patient line at a time.", "https://i.ibb.co/spCPKkrJ/Chat-GPT-Image-May-27-2026-07-15-08-PM.png"],
+      ["The Embrace", "Sketchbook charcoal - two figures folded into each other. Comfort and ache share the same smudged shadow; tenderness drawn without softening the weight.", "https://i.ibb.co/3ms9rjPy/Chat-GPT-Image-May-27-2026-07-17-57-PM.png"],
+      ["Blindfolded", "Charcoal portrait cut through by a strip of white - sight withheld, feeling turned up. The blindfold reads like silence made visible.", "https://i.ibb.co/Kj6Wv1Fc/Chat-GPT-Image-May-27-2026-07-22-31-PM.png"],
+      ["Dissolution", "Hyperrealistic charcoal pushed to its ceiling - likeness held until the borders begin to fray. Craft shown in how beautifully the face is allowed to come apart.", "https://i.ibb.co/1fKBrq9Y/Chat-GPT-Image-May-27-2026-07-24-30-PM.png"],
     ],
   },
   {
     label: "02 - Digital Illustration",
     columns: "work-grid four",
     works: [
-      ["Signal & Static", "A butterfly caught mid-glitch - wings splitting into pixels and light. Beauty doesn't disappear when the signal breaks; it just learns a new language between noise and form.", "https://i.ibb.co/YxFVqw6"],
-      ["Forest Serenade", "A steampunk owl holds court in a forest of glowing blooms - brass and petals, hum and heat. Machines don't have to feel cold when nature is willing to sing back.", "https://i.ibb.co/4Zj0JQdh"],
-      ["Reach", "A lone figure stretched between cliffs and constellations - small against the void, still reaching. Scale as drama: the gap is the story.", "https://i.ibb.co/KpbV9rWh"],
-      ["Last Train", "Cartoon chaos of the platform sprint - bags flying, clock screaming, one foot on the train and one still on regret. Comedy with a heartbeat.", "https://i.ibb.co/Xxs5chmS"],
+      ["Signal & Static", "A butterfly caught mid-glitch - wings splitting into pixels and light. Beauty doesn't disappear when the signal breaks; it just learns a new language between noise and form.", "https://i.ibb.co/RqkJVd1/4.png"],
+      ["Forest Serenade", "A steampunk owl holds court in a forest of glowing blooms - brass and petals, hum and heat. Machines don't have to feel cold when nature is willing to sing back.", "https://i.ibb.co/wNK2Yvs5/4th.png"],
+      ["Reach", "A lone figure stretched between cliffs and constellations - small against the void, still reaching. Scale as drama: the gap is the story.", "https://i.ibb.co/xtXzM76L/art.png"],
+      ["Last Train", "Cartoon chaos of the platform sprint - bags flying, clock screaming, one foot on the train and one still on regret. Comedy with a heartbeat.", "https://i.ibb.co/3mNFgDtB/Untitled-Artwork-3-1.png"],
     ],
   },
   {
     label: "03 - Brand & Design",
     columns: "work-grid",
     works: [
-      ["Antaragni '24 Logo", "Primary identity for Antaragni '24 - IIT Kanpur's 59th cultural fest and one of Asia's largest college events. Iconic landmarks from around the world are built into the custom letterforms, so the logo reads as both a wordmark and a map of the festival's scale (350+ colleges, four days, 130K+ attendees).", "https://i.ibb.co/5gtx2pxC"],
-      ["Fine Arts Club Official Merch", "Official merchandise for the Fine Arts Club, IIT Kanpur. A botanical skeleton in warm gold on black - art is what gives bare things a pulse; this was made to be lived in, not left in a drawer.", "https://i.ibb.co/1fnKLJwr"],
-      ["Cult Meet 8.0 Sweatshirt", "Official sweatshirt logo for IIT Kanpur's Inter IIT Cult Meet 8.0 contingent. Six cultural art forms, one figure-8, one vibrant wave - Dec 2025, 23 IITs.", "https://i.ibb.co/27bjJB2d"],
-      ["Udghosh '24 Jersey", "Sport-coded, hype-ready. The contingent jersey reveal post.", "https://i.ibb.co/1G1nQnHR"],
-      ["Stapati Associates Logo", "S-letterform embedded in a building elevation. Architecture identity.", "https://i.ibb.co/BVynps70"],
+      ["Antaragni '24 Logo", "Primary identity for Antaragni '24 - IIT Kanpur's 59th cultural fest and one of Asia's largest college events. Iconic landmarks from around the world are built into the custom letterforms, so the logo reads as both a wordmark and a map of the festival's scale (350+ colleges, four days, 130K+ attendees).", "https://i.ibb.co/cSMXxfXR/Chat-GPT-Image-May-27-2026-07-35-31-PM.png"],
+      ["Fine Arts Club Official Merch", "Official merchandise for the Fine Arts Club, IIT Kanpur. A botanical skeleton in warm gold on black - art is what gives bare things a pulse; this was made to be lived in, not left in a drawer.", "https://i.ibb.co/PZY4Nzfc/3.png"],
+      ["Cult Meet 8.0 Sweatshirt", "Official sweatshirt logo for IIT Kanpur's Inter IIT Cult Meet 8.0 contingent. Six cultural art forms, one figure-8, one vibrant wave - Dec 2025, 23 IITs.", "https://i.ibb.co/Rp5C8Wnc/IMG-20260217-WA0007.jpg"],
+      ["Udghosh '24 Jersey", "Sport-coded, hype-ready. The contingent jersey reveal post.", "https://i.ibb.co/gZN797st/The-wait-is-over-Presenting-the-official-Udghosh-2024-jersey-where-passion-meets-performanc.jpg"],
+      ["Stapati Associates Logo", "S-letterform embedded in a building elevation. Architecture identity.", "https://i.ibb.co/zhX6MfLq/IMG-20210821-WA0028.jpg"],
     ],
   },
 ];
@@ -162,10 +162,10 @@ export const campaignStats = [
 ];
 
 export const campaignPosts = [
-  { label: "Battle Underground", imageUrl: "https://i.ibb.co/8ghMCTtr" },
-  { label: "Dramatics", imageUrl: "https://i.ibb.co/Q3K51CXv" },
-  { label: "Mr & Ms Antaragni", imageUrl: "https://i.ibb.co/8DFbwVJJ" },
-  { label: "Comic Kaun", imageUrl: "https://i.ibb.co/BVW9jyST" },
+  { label: "Battle Underground", imageUrl: "https://i.ibb.co/jkphNBsy/1-REBEL-7.png" },
+  { label: "Dramatics", imageUrl: "https://i.ibb.co/ycQ3bYVF/4-Denisha-ghumra.png" },
+  { label: "Mr & Ms Antaragni", imageUrl: "https://i.ibb.co/kgYJTFpp/Whats-App-Image-2024-10-16-at-02-38-28.jpg" },
+  { label: "Comic Kaun", imageUrl: "https://i.ibb.co/ynvr56bg/Whats-App-Image-2024-10-19-at-18-30-30.jpg" },
 ];
 
 export const motionCards = [
