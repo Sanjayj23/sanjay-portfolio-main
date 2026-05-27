@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 180 180">
+  <filter id="paperNoise">
+    <feTurbulence type="fractalNoise" baseFrequency=".72" numOctaves="3" stitchTiles="stitch"/>
+    <feColorMatrix type="saturate" values=".25"/>
+    <feComponentTransfer>
+      <feFuncA type="table" tableValues="0 .18"/>
+    </feComponentTransfer>
+  </filter>
+  <rect width="180" height="180" fill="#f5ede0"/>
+  <path d="M0 0h180v180H0z" filter="url(#paperNoise)"/>
+  <path d="M0 18h180M0 36h180M0 54h180M0 72h180M0 90h180M0 108h180M0 126h180M0 144h180M0 162h180" stroke="#6e1010" stroke-opacity=".075"/>
+</svg>

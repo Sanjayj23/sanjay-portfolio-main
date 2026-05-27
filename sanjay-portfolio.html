@@ -1,0 +1,1898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sanjay | Creative Generalist Portfolio</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@600;700;800&family=Caveat:wght@600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700;9..40,800&family=Playfair+Display:ital,wght@0,700;1,500;1,700;1,900&display=swap");
+
+    /* Theme tokens */
+    :root {
+      --red: #6e1010;
+      --red-alt: #7a1414;
+      --red-dark: #500a0a;
+      --red-ink: #3e0707;
+      --paper: #f5ede0;
+      --paper-light: #fff8ed;
+      --paper-line: rgba(110, 16, 16, 0.085);
+      --cream: #f5f0e8;
+      --ink: #1a0f0a;
+      --muted: #6a4c3d;
+      --gold: #d4923a;
+      --terracotta: #9f2e22;
+      --shadow: 0 18px 44px rgba(0, 0, 0, 0.34);
+      --soft-shadow: 0 8px 24px rgba(0, 0, 0, 0.24);
+      --max: 1120px;
+      --nav-height: 72px;
+      --body: "DM Sans", system-ui, sans-serif;
+      --display: "Playfair Display", serif;
+      --shout: "Anton", "Barlow Condensed", sans-serif;
+      --condensed: "Barlow Condensed", sans-serif;
+      --hand: "Caveat", cursive;
+    }
+
+    /* Base canvas */
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      background: var(--red);
+      color: var(--cream);
+      font-family: var(--body);
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    body.menu-open {
+      overflow: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(255,255,255,0.045), transparent 18%),
+        repeating-linear-gradient(0deg, rgba(255,255,255,0.028) 0 1px, transparent 1px 4px),
+        repeating-linear-gradient(90deg, rgba(0,0,0,0.075) 0 1px, transparent 1px 7px),
+        var(--red);
+      opacity: 0.95;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    svg,
+    img {
+      display: block;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    /* Fixed zine navigation */
+    .site-nav {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 100;
+      height: var(--nav-height);
+      background: rgba(80, 10, 10, 0.92);
+      border-bottom: 1px solid rgba(245, 240, 232, 0.14);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav-inner {
+      width: min(var(--max), calc(100% - 38px));
+      height: 100%;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      font-family: var(--display);
+      font-size: 1.7rem;
+      font-style: italic;
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.15rem;
+    }
+
+    .nav-links a {
+      color: rgba(245, 240, 232, 0.78);
+      font-size: 0.73rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--gold);
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(245, 240, 232, 0.24);
+      border-radius: 10px;
+      background: rgba(245, 237, 224, 0.08);
+      color: var(--cream);
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .menu-toggle span {
+      width: 18px;
+      height: 2px;
+      border-radius: 999px;
+      background: currentColor;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .menu-toggle[aria-expanded="true"] span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .menu-toggle[aria-expanded="true"] span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle[aria-expanded="true"] span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* Shared section layout */
+    .scrap-section {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      padding: 7rem 1.15rem;
+      background: var(--red);
+    }
+
+    .scrap-section.alt {
+      background: var(--red-alt);
+    }
+
+    .scrap-section::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,0.035), transparent 22%, transparent 78%, rgba(0,0,0,0.08)),
+        repeating-linear-gradient(0deg, transparent 0 21px, rgba(0,0,0,0.055) 22px);
+      mix-blend-mode: soft-light;
+    }
+
+    .section-inner {
+      position: relative;
+      z-index: 3;
+      width: min(var(--max), 100%);
+      margin: 0 auto;
+    }
+
+    .doodle-layer {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      user-select: none;
+      overflow: hidden;
+    }
+
+    .doodle {
+      position: absolute;
+      left: var(--x);
+      top: var(--y);
+      width: var(--s);
+      height: var(--s);
+      color: var(--cream);
+      opacity: var(--o);
+      transform: translate(-50%, -50%) rotate(var(--r));
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .doodle svg {
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+    }
+
+    .section-title-wrap {
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      gap: 0.9rem;
+      min-height: 7rem;
+      margin-bottom: 1.7rem;
+    }
+
+    .ghost-number {
+      position: absolute;
+      left: -0.4rem;
+      bottom: -1rem;
+      z-index: -1;
+      color: rgba(255, 255, 255, 0.075);
+      font-family: var(--shout);
+      font-size: 8rem;
+      line-height: 0.82;
+      pointer-events: none;
+    }
+
+    .section-kicker {
+      display: inline-grid;
+      place-items: center;
+      min-width: 42px;
+      height: 42px;
+      padding: 0 0.55rem;
+      border: 1px solid rgba(245, 240, 232, 0.32);
+      border-radius: 999px;
+      background: rgba(80, 10, 10, 0.42);
+      color: var(--gold);
+      font-family: var(--condensed);
+      font-size: 1.05rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .section-heading {
+      margin: 0;
+      color: var(--cream);
+      font-family: var(--shout);
+      font-size: 5.6rem;
+      font-weight: 400;
+      line-height: 0.92;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .section-subtitle {
+      margin: -0.4rem 0 2rem;
+      color: rgba(245, 240, 232, 0.9);
+      font-family: var(--display);
+      font-size: 1.72rem;
+      font-style: italic;
+      font-weight: 500;
+      line-height: 1.15;
+    }
+
+    .gold {
+      color: var(--gold);
+    }
+
+    /* Paper and scrapbook components */
+    .paper-sheet,
+    .paper-card {
+      position: relative;
+      color: var(--ink);
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.56), transparent 36%),
+        repeating-linear-gradient(0deg, var(--paper-line) 0 1px, transparent 1px 8px),
+        var(--paper);
+      border: 1px solid rgba(255,255,255,0.42);
+      box-shadow: var(--shadow);
+    }
+
+    .paper-sheet {
+      border-radius: 12px;
+      padding: 2.1rem;
+    }
+
+    .paper-card {
+      border-radius: 18px;
+      padding: 1.25rem;
+    }
+
+    .paper-sheet::before,
+    .paper-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      pointer-events: none;
+      background: radial-gradient(circle at 22% 8%, rgba(255,255,255,0.45), transparent 16%);
+      mix-blend-mode: screen;
+      opacity: 0.75;
+    }
+
+    .washi {
+      position: absolute;
+      z-index: 6;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 30px;
+      padding: 0.28rem 0.8rem;
+      border-left: 2px dashed rgba(80, 10, 10, 0.24);
+      border-right: 2px dashed rgba(80, 10, 10, 0.24);
+      background: rgba(245, 225, 183, 0.78);
+      color: #4e2a19;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.13);
+      font-family: var(--hand);
+      font-size: 1.2rem;
+      font-weight: 700;
+      line-height: 1;
+      transform: rotate(var(--tilt, -2deg));
+      pointer-events: none;
+    }
+
+    .washi.dark {
+      background: rgba(80, 10, 10, 0.92);
+      color: var(--paper-light);
+    }
+
+    .corner-pin {
+      position: absolute;
+      width: 34px;
+      height: 34px;
+      z-index: 7;
+      color: var(--terracotta);
+      opacity: 0.78;
+      pointer-events: none;
+    }
+
+    .hand-note {
+      position: absolute;
+      z-index: 7;
+      color: var(--terracotta);
+      font-family: var(--hand);
+      font-size: 1.35rem;
+      font-weight: 700;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .mini-doodle {
+      position: absolute;
+      z-index: 7;
+      width: var(--w, 54px);
+      height: var(--w, 54px);
+      color: var(--terracotta);
+      opacity: 0.58;
+      pointer-events: none;
+    }
+
+    .mini-doodle.white {
+      color: var(--cream);
+      opacity: 0.85;
+    }
+
+    .torn-edge {
+      clip-path: polygon(0 3%, 6% 1%, 12% 3%, 20% 0, 29% 2%, 39% 1%, 50% 3%, 62% 0, 70% 2%, 81% 1%, 91% 3%, 100% 1%, 100% 98%, 92% 100%, 83% 97%, 72% 99%, 61% 98%, 50% 100%, 39% 97%, 28% 99%, 18% 98%, 8% 100%, 0 97%);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+      transition-delay: var(--delay, 0ms);
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Hero scrapbook spread */
+    .hero {
+      min-height: 100vh;
+      padding-top: calc(var(--nav-height) + 2.5rem);
+      display: grid;
+      align-items: center;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+      align-items: center;
+      gap: 3rem;
+    }
+
+    .hero-paper {
+      min-height: 470px;
+      display: grid;
+      align-content: center;
+      overflow: visible;
+    }
+
+    .hero-title {
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--display);
+      font-size: 7.9rem;
+      font-style: italic;
+      font-weight: 900;
+      line-height: 0.88;
+    }
+
+    .hero-role {
+      margin: 0.55rem 0 0;
+      color: var(--red);
+      font-family: var(--condensed);
+      font-size: 3.35rem;
+      font-weight: 800;
+      line-height: 0.94;
+      text-transform: uppercase;
+    }
+
+    .hero-subtitle {
+      margin: 0.3rem 0 1.35rem;
+      color: var(--ink);
+      font-family: var(--display);
+      font-size: 2.25rem;
+      font-style: italic;
+      font-weight: 700;
+      line-height: 1.08;
+    }
+
+    .ribbon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+      max-width: 430px;
+      margin-bottom: 1.35rem;
+      padding: 0.82rem 1.6rem;
+      background: var(--red-dark);
+      color: var(--paper-light);
+      clip-path: polygon(0 0, 100% 0, 92% 50%, 100% 100%, 0 100%, 8% 50%);
+      filter: drop-shadow(0 6px 12px rgba(0,0,0,0.26));
+      font-size: 0.88rem;
+      font-weight: 900;
+      line-height: 1.1;
+      text-align: center;
+      transform: rotate(-2deg);
+    }
+
+    .hero-meta {
+      display: grid;
+      gap: 0.26rem;
+      color: #4b2b1d;
+      font-size: 0.86rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .scroll-prompt {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      width: fit-content;
+      color: var(--red);
+    }
+
+    .scroll-prompt::before {
+      content: "";
+      width: 32px;
+      height: 1px;
+      background: currentColor;
+    }
+
+    .portrait-stack {
+      position: relative;
+      justify-self: center;
+      width: min(390px, 100%);
+    }
+
+    .polaroid {
+      position: relative;
+      padding: 1rem 1rem 4.2rem;
+      background: var(--paper-light);
+      border-radius: 8px;
+      box-shadow: 16px 22px 46px rgba(0,0,0,0.42);
+      transform: rotate(2deg);
+    }
+
+    .portrait-window {
+      aspect-ratio: 0.78;
+      border-radius: 4px;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 50% 26%, rgba(245,237,224,0.24), transparent 17%),
+        radial-gradient(circle at 48% 44%, rgba(212,146,58,0.18), transparent 35%),
+        linear-gradient(150deg, #20100d 0%, #4b120f 48%, #110706 100%);
+    }
+
+    .portrait-window::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      width: 58%;
+      height: 76%;
+      transform: translateX(-50%);
+      border-radius: 48% 48% 0 0;
+      background:
+        radial-gradient(circle at 50% 15%, rgba(245,237,224,0.3), transparent 16%),
+        linear-gradient(180deg, rgba(245,237,224,0.08), rgba(0,0,0,0.56));
+      box-shadow: inset 0 0 70px rgba(0,0,0,0.35);
+    }
+
+    .portrait-caption {
+      position: absolute;
+      left: 1.1rem;
+      bottom: 1.05rem;
+      color: #2b1a12;
+      font-family: var(--hand);
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .portrait-year {
+      position: absolute;
+      right: 1.15rem;
+      bottom: 1rem;
+      color: #5e4639;
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.78fr 1.22fr;
+      align-items: start;
+      gap: 2.7rem;
+    }
+
+    .manifesto-photo {
+      padding: 0.95rem 0.95rem 3.8rem;
+      transform: rotate(-3deg);
+    }
+
+    .manifesto-photo .portrait-window {
+      aspect-ratio: 0.86;
+    }
+
+    .about-paper {
+      padding-bottom: 3.7rem;
+    }
+
+    .about-paper p {
+      margin: 0;
+      color: #2b1a12;
+      font-size: 0.98rem;
+      font-weight: 500;
+    }
+
+    .quote-strip {
+      margin-top: 1.45rem;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1rem;
+      padding-top: 1.2rem;
+      border-top: 2px dashed rgba(110,16,16,0.18);
+    }
+
+    .vertical-note {
+      color: var(--red);
+      font-family: var(--condensed);
+      font-size: 1.05rem;
+      font-weight: 800;
+      line-height: 0.95;
+      text-transform: uppercase;
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+    }
+
+    .quote-strip blockquote {
+      margin: 0;
+      color: #5d2c19;
+      font-family: var(--display);
+      font-size: 1.35rem;
+      font-style: italic;
+      font-weight: 700;
+      line-height: 1.25;
+    }
+
+    .info-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.3rem;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      min-height: 42px;
+      padding: 0.48rem 0.82rem;
+      border-radius: 999px;
+      background: var(--paper-light);
+      color: var(--ink);
+      box-shadow: var(--soft-shadow);
+      font-size: 0.84rem;
+      font-weight: 900;
+    }
+
+    .chip svg {
+      width: 18px;
+      height: 18px;
+      color: var(--red);
+      stroke: currentColor;
+    }
+
+    /* Toolkit binder */
+    .toolkit-binder {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.2rem;
+    }
+
+    .binder-card {
+      position: relative;
+      min-height: 360px;
+      padding: 2.15rem 1.35rem 1.35rem;
+      border-radius: 4px;
+      background:
+        linear-gradient(90deg, #eadccb 0 20px, transparent 20px),
+        repeating-linear-gradient(0deg, transparent 0 27px, rgba(110,16,16,0.11) 28px),
+        var(--paper-light);
+      color: var(--ink);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .binder-card::before {
+      content: "";
+      position: absolute;
+      left: 8px;
+      top: 18px;
+      bottom: 18px;
+      width: 6px;
+      background:
+        radial-gradient(circle, rgba(110,16,16,0.35) 0 3px, transparent 4px) 0 0 / 6px 42px;
+    }
+
+    .binder-title,
+    .card-title {
+      margin: 0 0 1rem;
+      color: var(--red);
+      font-family: var(--condensed);
+      font-size: 1.7rem;
+      font-weight: 800;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.48rem;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 0.2rem 0.58rem;
+      border: 1px solid rgba(110,16,16,0.22);
+      border-radius: 4px;
+      background: rgba(110,16,16,0.08);
+      color: var(--ink);
+      font-size: 0.74rem;
+      font-weight: 900;
+      line-height: 1.1;
+    }
+
+    /* Experiences */
+    .experience-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.1rem;
+    }
+
+    .experience-card {
+      min-height: 310px;
+      overflow: hidden;
+    }
+
+    .experience-card ul {
+      margin: 0;
+      padding-left: 1.1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 800;
+    }
+
+    .experience-card li + li {
+      margin-top: 0.52rem;
+    }
+
+    .experience-index {
+      position: absolute;
+      right: 1rem;
+      bottom: 0.3rem;
+      color: rgba(110,16,16,0.25);
+      font-family: var(--display);
+      font-size: 4.2rem;
+      font-style: italic;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    /* Work range */
+    .range-group + .range-group {
+      margin-top: 3rem;
+    }
+
+    .range-label {
+      display: inline-flex;
+      align-items: center;
+      margin-bottom: 1rem;
+      padding: 0.42rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid rgba(245,237,224,0.22);
+      background: rgba(245,237,224,0.14);
+      color: var(--paper-light);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.16);
+      font-family: var(--condensed);
+      font-size: 1rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.1rem;
+    }
+
+    .work-grid.four {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .work-card {
+      padding: 0.78rem 0.78rem 1rem;
+      border-radius: 9px;
+    }
+
+    .art-placeholder {
+      min-height: 176px;
+      border-radius: 5px;
+      display: grid;
+      place-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: 1rem;
+      text-align: center;
+      color: var(--paper-light);
+      font-family: var(--display);
+      font-size: 1.34rem;
+      font-style: italic;
+      font-weight: 900;
+      background:
+        linear-gradient(135deg, rgba(212,146,58,0.24), transparent 42%),
+        radial-gradient(circle at 72% 16%, rgba(245,237,224,0.18), transparent 18%),
+        linear-gradient(160deg, #130807, #43100d 52%, #1c0a08);
+      box-shadow: inset 0 0 0 1px rgba(245,237,224,0.12);
+    }
+
+    .art-placeholder::after {
+      content: "";
+      position: absolute;
+      left: 12px;
+      right: 12px;
+      bottom: 12px;
+      height: 1px;
+      background: rgba(212,146,58,0.48);
+    }
+
+    .work-info {
+      padding: 0.84rem 0.1rem 0;
+    }
+
+    .work-info h3 {
+      margin: 0 0 0.24rem;
+      color: var(--ink);
+      font-size: 0.98rem;
+      line-height: 1.2;
+    }
+
+    .work-info p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.84rem;
+      line-height: 1.34;
+    }
+
+    /* Campaign dossier */
+    .campaign-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(300px, 0.95fr);
+      align-items: start;
+      gap: 1.25rem;
+    }
+
+    .campaign-copy {
+      font-size: 1.04rem;
+      font-weight: 700;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.9rem;
+    }
+
+    .stat-tile {
+      min-height: 138px;
+      display: grid;
+      align-content: center;
+      border-radius: 50%;
+      aspect-ratio: 1;
+      padding: 1rem;
+      text-align: center;
+      background:
+        radial-gradient(circle at 35% 30%, rgba(255,255,255,0.3), transparent 30%),
+        radial-gradient(circle, #b83226 0%, #76100d 72%);
+      border: 2px dashed rgba(245,237,224,0.32);
+      color: var(--paper-light);
+      box-shadow: 10px 14px 30px rgba(0,0,0,0.32), inset 0 0 16px rgba(0,0,0,0.32);
+    }
+
+    .stat-number {
+      color: var(--paper-light);
+      font-family: var(--shout);
+      font-size: 2.65rem;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .stat-label {
+      color: inherit;
+      font-size: 0.75rem;
+      font-weight: 900;
+      line-height: 1.15;
+      text-transform: uppercase;
+    }
+
+    .campaign-posts {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1.2rem;
+    }
+
+    .post-placeholder {
+      min-height: 230px;
+      border-radius: 10px;
+      display: grid;
+      place-items: end stretch;
+      padding: 0.85rem;
+      color: var(--paper-light);
+      background:
+        linear-gradient(135deg, rgba(212,146,58,0.18), transparent 45%),
+        linear-gradient(160deg, #140706, #44100e 56%, #080302);
+      box-shadow: var(--shadow);
+    }
+
+    .post-placeholder span {
+      display: grid;
+      min-height: 100%;
+      place-items: center;
+      border: 1px solid rgba(212,146,58,0.74);
+      border-radius: 7px;
+      padding: 1rem;
+      color: var(--gold);
+      font-family: var(--condensed);
+      font-size: 1.25rem;
+      font-weight: 800;
+      line-height: 1.06;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    /* Motion */
+    .motion-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.1rem;
+    }
+
+    .motion-card {
+      padding: 0.78rem;
+      border-radius: 10px;
+    }
+
+    .video-thumb {
+      aspect-ratio: 16 / 9;
+      display: grid;
+      place-items: center;
+      border-radius: 5px;
+      background:
+        radial-gradient(circle at 50% 44%, rgba(212,146,58,0.3), transparent 34%),
+        linear-gradient(135deg, #140706, #42100e 56%, #0b0303);
+    }
+
+    .play-circle {
+      width: 70px;
+      height: 70px;
+      border: 2px solid rgba(245,240,232,0.9);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: var(--gold);
+      background: rgba(80,10,10,0.32);
+      box-shadow: 0 0 0 8px rgba(212,146,58,0.08);
+    }
+
+    .play-circle svg {
+      width: 28px;
+      height: 28px;
+      margin-left: 4px;
+      fill: currentColor;
+    }
+
+    .motion-body {
+      padding: 1rem 0.25rem 0.1rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      margin-bottom: 0.65rem;
+      padding: 0.24rem 0.52rem;
+      border-radius: 4px;
+      background: rgba(110,16,16,0.1);
+      color: var(--terracotta);
+      font-size: 0.7rem;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .motion-body h3 {
+      margin: 0 0 0.45rem;
+      color: var(--ink);
+      font-size: 1.08rem;
+      line-height: 1.22;
+    }
+
+    .motion-body p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.36;
+    }
+
+    /* Leadership */
+    .impact-strip {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.8rem;
+      margin-bottom: 3rem;
+    }
+
+    .impact-tile {
+      min-height: 116px;
+      display: grid;
+      align-content: center;
+      gap: 0.25rem;
+      text-align: center;
+    }
+
+    .impact-number {
+      color: var(--red);
+      font-family: var(--shout);
+      font-size: 2.35rem;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .timeline {
+      position: relative;
+      width: min(880px, 100%);
+      margin: 0 auto;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 1.4rem;
+      top: 0.8rem;
+      bottom: 0.8rem;
+      width: 1px;
+      border-left: 1px dashed rgba(245,237,224,0.45);
+    }
+
+    .timeline-card {
+      margin-left: 3.35rem;
+      padding: 1.15rem 1.25rem;
+      border-left: 5px solid var(--red);
+      border-radius: 8px 18px 18px 8px;
+    }
+
+    .year-tag {
+      display: inline-flex;
+      margin-bottom: 0.5rem;
+      color: var(--red);
+      font-family: var(--condensed);
+      font-size: 1rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .timeline-card h3 {
+      margin: 0 0 0.35rem;
+      color: var(--ink);
+      font-size: 1.02rem;
+      line-height: 1.25;
+    }
+
+    .timeline-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    /* Closing zine page */
+    .contact-section {
+      min-height: 78vh;
+      display: grid;
+      align-items: center;
+      text-align: center;
+    }
+
+    .closing-sheet {
+      width: min(850px, 100%);
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+
+    .closing-quote {
+      margin: 0 auto 2rem;
+      color: var(--ink);
+      font-family: var(--display);
+      font-size: 2.35rem;
+      font-style: italic;
+      font-weight: 900;
+      line-height: 1.15;
+    }
+
+    .hello-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.65rem;
+      min-height: 58px;
+      padding: 0.8rem 1.45rem;
+      border-radius: 14px;
+      background: var(--red);
+      color: var(--paper-light);
+      box-shadow: var(--soft-shadow);
+      font-size: 0.98rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .hello-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.3);
+    }
+
+    .hello-button svg {
+      width: 20px;
+      height: 20px;
+      stroke: currentColor;
+    }
+
+    .social-lines {
+      margin-top: 1.2rem;
+      display: grid;
+      gap: 0.28rem;
+      color: #5d3c2a;
+      font-size: 0.86rem;
+      font-weight: 800;
+    }
+
+    .social-lines a:hover {
+      color: var(--red);
+    }
+
+    /* Responsive behavior */
+    @media (max-width: 1080px) {
+      .hero-title {
+        font-size: 6.5rem;
+      }
+
+      .hero-role {
+        font-size: 2.8rem;
+      }
+
+      .section-heading {
+        font-size: 4.45rem;
+      }
+
+      .work-grid.four {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .impact-strip {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: inline-flex;
+        position: relative;
+        z-index: 111;
+      }
+
+      .nav-links {
+        position: fixed;
+        inset: 0;
+        z-index: 110;
+        min-height: 100vh;
+        padding: 7rem 2rem 2rem;
+        display: grid;
+        place-content: center;
+        gap: 1.35rem;
+        background: rgba(80, 10, 10, 0.98);
+        transform: translateY(-100%);
+        opacity: 0;
+        pointer-events: none;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+      }
+
+      .nav-links.is-open {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .nav-links a {
+        font-size: 1.2rem;
+        text-align: center;
+      }
+
+      .scrap-section {
+        padding: 5.8rem 1rem;
+      }
+
+      .hero-grid,
+      .about-grid,
+      .toolkit-binder,
+      .experience-grid,
+      .motion-grid,
+      .campaign-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-paper {
+        min-height: auto;
+      }
+
+      .hero-title {
+        font-size: 5.25rem;
+      }
+
+      .hero-role {
+        font-size: 2.3rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.75rem;
+      }
+
+      .portrait-stack {
+        width: min(350px, 100%);
+      }
+
+      .section-title-wrap {
+        min-height: 5.4rem;
+      }
+
+      .section-heading {
+        font-size: 3.55rem;
+      }
+
+      .ghost-number {
+        font-size: 6.2rem;
+      }
+
+      .work-grid,
+      .work-grid.four,
+      .campaign-posts {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nav-inner {
+        width: calc(100% - 28px);
+      }
+
+      .scrap-section {
+        padding: 5.1rem 0.88rem;
+      }
+
+      .hero {
+        padding-top: calc(var(--nav-height) + 1rem);
+      }
+
+      .hero-title {
+        font-size: 3.75rem;
+      }
+
+      .hero-role {
+        font-size: 1.85rem;
+      }
+
+      .hero-subtitle,
+      .section-subtitle {
+        font-size: 1.25rem;
+      }
+
+      .paper-sheet {
+        padding: 1.2rem;
+      }
+
+      .ribbon {
+        width: 100%;
+        padding: 0.8rem 1.2rem;
+      }
+
+      .polaroid {
+        padding: 0.75rem 0.75rem 3.4rem;
+      }
+
+      .portrait-caption {
+        font-size: 1.65rem;
+      }
+
+      .section-title-wrap {
+        align-items: center;
+        min-height: auto;
+        margin-bottom: 1.2rem;
+      }
+
+      .ghost-number {
+        display: none;
+      }
+
+      .section-kicker {
+        min-width: 36px;
+        height: 36px;
+        font-size: 0.95rem;
+      }
+
+      .section-heading {
+        font-size: 2.62rem;
+      }
+
+      .quote-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .vertical-note {
+        writing-mode: initial;
+        transform: none;
+      }
+
+      .chip {
+        width: 100%;
+        border-radius: 12px;
+      }
+
+      .toolkit-binder,
+      .experience-grid,
+      .work-grid,
+      .work-grid.four,
+      .stat-grid,
+      .campaign-posts,
+      .motion-grid,
+      .impact-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .stat-tile {
+        width: min(190px, 100%);
+        justify-self: center;
+      }
+
+      .timeline::before {
+        left: 0.65rem;
+      }
+
+      .timeline-card {
+        margin-left: 1.6rem;
+      }
+
+      .closing-sheet {
+        padding: 2rem 1rem;
+      }
+
+      .closing-quote {
+        font-size: 1.55rem;
+      }
+
+      .doodle-layer .doodle:nth-child(n+7) {
+        display: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="site-nav" aria-label="Primary navigation">
+    <div class="nav-inner">
+      <a class="brand" href="#top" aria-label="Sanjay portfolio home">S.</a>
+      <div class="nav-links" id="navLinks">
+        <a href="#about" data-link="about">About</a>
+        <a href="#toolkit" data-link="toolkit">Toolkit</a>
+        <a href="#experience" data-link="experience">Experience</a>
+        <a href="#range" data-link="range">Work</a>
+        <a href="#contact" data-link="contact">Contact</a>
+      </div>
+      <button class="menu-toggle" type="button" aria-label="Open menu" aria-controls="navLinks" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main id="top">
+    <section class="scrap-section hero" data-doodles="hero" aria-labelledby="hero-title">
+      <div class="doodle-layer" aria-hidden="true"></div>
+      <div class="section-inner hero-grid">
+        <article class="paper-sheet torn-edge hero-paper reveal">
+          <span class="washi" style="top:-14px; left:18%; --tilt:-3deg;">visual direction file</span>
+          <svg class="corner-pin" style="top:16px; right:18px;" viewBox="0 0 64 64" aria-hidden="true">
+            <path d="M22 13c12-4 23 5 21 18-2 13-15 18-26 11" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+            <path d="M25 22c8-3 15 2 14 10-1 8-9 11-16 7" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+          <h1 class="hero-title" id="hero-title">Portfolio</h1>
+          <p class="hero-role">Creative Generalist</p>
+          <p class="hero-subtitle">&amp; Visual Storyteller</p>
+          <div class="ribbon">From charcoal on paper to AI-generated frames.</div>
+          <div class="hero-meta">
+            <span>IIT Kanpur, India</span>
+            <a class="scroll-prompt" href="#about">Scroll to enter the work</a>
+          </div>
+          <svg class="mini-doodle" style="--w:180px; left:34px; bottom:24px;" viewBox="0 0 180 28" aria-hidden="true">
+            <path d="M4 13c42-14 86 17 172-2" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+            <path d="M12 20c38-10 82 12 150-1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".7"/>
+          </svg>
+        </article>
+
+        <div class="portrait-stack reveal">
+          <span class="washi dark" style="top:-8px; right:26px; --tilt:5deg;">IITK 2026</span>
+          <div class="polaroid">
+            <svg class="mini-doodle" style="--w:52px; top:-22px; left:20px; color:#5a4032;" viewBox="0 0 60 70" aria-hidden="true">
+              <path d="M18 62V19c0-9 14-9 14 0v31c0 13-21 13-21-1V20" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+            </svg>
+            <div class="portrait-window" aria-label="Portrait placeholder for Sanjay"></div>
+            <div class="portrait-caption">Sanjay</div>
+            <div class="portrait-year">Creative Generalist</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="scrap-section alt" id="about" data-doodles="about" aria-labelledby="about-title">
+      <div class="doodle-layer" aria-hidden="true"></div>
+      <div class="section-inner">
+        <div class="section-title-wrap">
+          <span class="ghost-number">01</span>
+          <span class="section-kicker">01</span>
+          <h2 class="section-heading" id="about-title">About Me</h2>
+        </div>
+
+        <div class="about-grid">
+          <aside class="polaroid manifesto-photo reveal">
+            <span class="washi" style="top:-12px; left:28px; --tilt:-5deg;">first language: charcoal</span>
+            <div class="portrait-window"></div>
+            <div class="portrait-caption">manifesto</div>
+            <div class="portrait-year">Studio note</div>
+          </aside>
+
+          <article class="paper-sheet about-paper reveal">
+            <span class="hand-note" style="top:18px; right:24px;">not a tool-chaser</span>
+            <svg class="mini-doodle" style="--w:58px; right:28px; bottom:28px;" viewBox="0 0 100 100" aria-hidden="true">
+              <path d="M20 75 64 20l16 15-45 55-18 5Z" fill="none" stroke="currentColor" stroke-width="7" stroke-linejoin="round"/>
+              <path d="M63 22 75 9l16 15-13 12" fill="none" stroke="currentColor" stroke-width="7" stroke-linejoin="round"/>
+            </svg>
+            <p>I started with my hands. Charcoal, a blank page, and something I had to say. That instinct &mdash; the need to make something that lands &mdash; hasn't left me. It just grew. Now I design event campaigns seen by thousands, lead a creative community at one of India's best technical institutions, and figure out what AI can do when it's held by someone who actually understands visual craft. I'm not a tool-chaser. I'm building taste that makes every tool sharper. At IIT Kanpur, I lead the Fine Arts Club, I've competed nationally in art, and I've worn multiple creative hats &mdash; event branding, merch design, startup marketing, motion and AI video. I'm looking for the place where beautiful work and real-world impact are the same goal.</p>
+            <div class="quote-strip">
+              <div class="vertical-note">Why it works</div>
+              <blockquote>"I don't just use creative tools. I understand why something is beautiful &mdash; and that changes everything."</blockquote>
+            </div>
+          </article>
+        </div>
+
+        <div class="info-chips">
+          <span class="chip reveal">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s7-6 7-12a7 7 0 0 0-14 0c0 6 7 12 7 12Z" stroke-width="2"/><circle cx="12" cy="9" r="2.5" stroke-width="2"/></svg>
+            IIT Kanpur, India
+          </span>
+          <span class="chip reveal">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m3 8 9-4 9 4-9 4-9-4Z" stroke-width="2"/><path d="M7 10v5c2 2 8 2 10 0v-5" stroke-width="2"/></svg>
+            B.Tech 2026
+          </span>
+          <span class="chip reveal">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="8" r="5" stroke-width="2"/><path d="m8 13-2 8 6-3 6 3-2-8" stroke-width="2"/></svg>
+            National Gold Medalist &mdash; Kalakriti SOA
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <section class="scrap-section" id="toolkit" data-doodles="toolkit" aria-labelledby="toolkit-title">
+      <div class="doodle-layer" aria-hidden="true"></div>
+      <div class="section-inner">
+        <div class="section-title-wrap">
+          <span class="ghost-number">02</span>
+          <span class="section-kicker">02</span>
+          <h2 class="section-heading" id="toolkit-title">The Toolkit</h2>
+        </div>
+        <p class="section-subtitle">Three disciplines. One sensibility.</p>
+
+        <div class="toolkit-binder">
+          <article class="binder-card reveal">
+            <span class="washi" style="top:12px; right:18px; --tilt:4deg;">hand</span>
+            <h3 class="binder-title">Traditional Art</h3>
+            <div class="tag-list">
+              <span class="tag">Charcoal Portraiture</span>
+              <span class="tag">Graphite Hyperrealism</span>
+              <span class="tag">Ballpoint Pen</span>
+              <span class="tag">Mixed Media</span>
+              <span class="tag">Watercolour</span>
+              <span class="tag">Conceptual Art</span>
+            </div>
+            <svg class="mini-doodle" style="--w:72px; right:18px; bottom:14px;" viewBox="0 0 100 100" aria-hidden="true">
+              <path d="M28 78 61 18c3-5 11-1 8 5L36 83c-3 5-11 1-8-5Z" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round"/>
+              <path d="M22 86c13-3 28-1 42 6" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+            </svg>
+          </article>
+
+          <article class="binder-card reveal">
+            <span class="washi" style="top:12px; right:18px; --tilt:-3deg;">screen</span>
+            <h3 class="binder-title">Digital Design</h3>
+            <div class="tag-list">
+              <span class="tag">Adobe Illustrator</span>
+              <span class="tag">Adobe Photoshop</span>
+              <span class="tag">Procreate</span>
+              <span class="tag">Autodesk Sketchbook</span>
+              <span class="tag">Canva</span>
+              <span class="tag">Character Design</span>
+              <span class="tag">Event Branding</span>
+              <span class="tag">Merch Design</span>
+              <span class="tag">Logo &amp; Identity</span>
+              <span class="tag">Typography</span>
+            </div>
+            <svg class="mini-doodle" style="--w:76px; right:12px; bottom:12px;" viewBox="0 0 100 100" aria-hidden="true">
+              <path d="M22 72 58 18l20 18-43 47-18 4Z" fill="none" stroke="currentColor" stroke-width="6" stroke-linejoin="round"/>
+              <path d="M25 72 36 82" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+            </svg>
+          </article>
+
+          <article class="binder-card reveal">
+            <span class="washi" style="top:12px; right:18px; --tilt:3deg;">motion</span>
+            <h3 class="binder-title">Motion &amp; AI</h3>
+            <div class="tag-list">
+              <span class="tag">Adobe Premiere Pro</span>
+              <span class="tag">AI Video Generation</span>
+              <span class="tag">Kling</span>
+              <span class="tag">Runway</span>
+              <span class="tag">Midjourney</span>
+              <span class="tag">Script Writing</span>
+              <span class="tag">Reel Editing</span>
+              <span class="tag">Motion Graphics</span>
+              <span class="tag">CapCut</span>
+              <span class="tag">Prompt Engineering</span>
+              <span class="tag">Instagram Growth</span>
+            </div>
+            <svg class="mini-doodle" style="--w:80px; right:10px; bottom:12px;" viewBox="0 0 100 100" aria-hidden="true">
+              <rect x="18" y="24" width="64" height="52" rx="6" fill="none" stroke="currentColor" stroke-width="6"/>
+              <path d="M36 24v52M64 24v52M18 41h18M64 41h18M18 59h18M64 59h18" fill="none" stroke="currentColor" stroke-width="5"/>
+            </svg>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="scrap-section alt" id="experience" data-doodles="experience" aria-labelledby="experience-title">
+      <div class="doodle-layer" aria-hidden="true"></div>
+      <div class="section-inner">
+        <div class="section-title-wrap">
+          <span class="ghost-number">03</span>
+          <span class="section-kicker">03</span>
+          <h2 class="section-heading" id="experience-title">Experiences</h2>
+        </div>
+
+        <div class="experience-grid">
+          <article class="paper-card experience-card reveal">
+            <span class="washi" style="top:-10px; left:22px; --tilt:-2deg;">01 bucket</span>
+            <h3 class="card-title">Work Experience</h3>
+            <ul>
+              <li>Antaragni '24 Design Team</li>
+              <li>AamDhane Startup Marketing</li>
+              <li>Sola AI &mdash; Avatar Intro (In Progress)</li>
+              <li>Fine Arts Club, IIT Kanpur</li>
+              <li>Games &amp; Sports Council, IIT Kanpur</li>
+            </ul>
+            <span class="experience-index">01</span>
+          </article>
+
+          <article class="paper-card experience-card reveal">
+            <span class="washi" style="top:-10px; left:22px; --tilt:2deg;">02 proofs</span>
+            <h3 class="card-title">Projects</h3>
+            <ul>
+              <li>Antaragni '24 Judge Reveal Campaign</li>
+              <li>Udghosh '24 Jersey Reveal</li>
+              <li>FAC Coordinator Merch</li>
+              <li>FAC Freshers Inferno Intro Reel</li>
+              <li>Cult Meet 8.0 Official Sweatshirt</li>
+              <li>Stapati Associates Brand Identity</li>
+            </ul>
+            <span class="experience-index">02</span>
+          </article>
+
+          <article class="paper-card experience-card reveal">
+            <span class="washi" style="top:-10px; left:22px; --tilt:-1deg;">03 receipts</span>
+            <h3 class="card-title">Recognition</h3>
+            <ul>
+              <li>National Gold Medal</li>
+              <li>Kalakriti SOA 2021</li>
+              <li>Bronze Cup</li>
+              <li>Inter IIT Cult Meet 8.0</li>
+              <li>1K+ Instagram Growth as FAC Coordinator</li>
+              <li>2&times; Represented IIT Kanpur at Inter IIT Cult Meet (7.0 and 8.0)</li>
+            </ul>
+            <span class="experience-index">03</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="scrap-section" id="range" data-doodles="range" aria-labelledby="range-title">
+      <div class="doodle-layer" aria-hidden="true"></div>
+      <div class="section-inner">
+        <div class="section-title-wrap">
+          <span class="ghost-number">04</span>
+          <span class="section-kicker">04</span>
+          <h2 class="section-heading" id="range-title">The Range</h2>
+        </div>
+        <p class="section-subtitle"><span class="gold">Traditional · Digital · Brand</span></p>
+
+        <div class="range-group">
+          <span class="range-label">01 &mdash; Traditional Art</span>
+          <div class="work-grid">
+            <article class="paper-card work-card reveal"><div class="art-placeholder">Shiva &amp; Parvati</div><div class="work-info"><h3>Shiva &amp; Parvati</h3><p>Divine duality in charcoal &mdash; two faces, one stillness.</p></div></article>
+            <article class="paper-card work-card reveal"><div class="art-placeholder">Untitled Portrait</div><div class="work-info"><h3>Untitled Portrait</h3><p>A face built entirely from ballpoint crosshatch.</p></div></article>
+            <article class="paper-card work-card reveal"><div class="art-placeholder">The Embrace</div><div class="work-info"><h3>The Embrace</h3><p>Smudged charcoal where comfort and ache become the same thing.</p></div></article>
+            <article class="paper-card work-card reveal"><div class="art-placeholder">Blindfolded</div><div class="work-info"><h3>Blindfolded</h3><p>The white strip cuts through the dark like a harsh silence.</p></div></article>
+            <article class="paper-card work-card reveal"><div class="art-placeholder">Dissolution</div><div class="work-info"><h3>Dissolution</h3><p>Hyperrealistic &mdash; a face that unravels at the edges. Technical peak.</p></div></article>
+          </div>
+        </div>
+
+        <div class="range-group">
+          <span class="range-label">02 &mdash; Digital Illustration</span>
+          <div class="work-grid four">
+            <article class="paper-card work-card reveal"><div class="art-placeholder">Signal &amp; Static</div><div class="work-info"><h3>Signal &amp; Static</h3><p>A butterfly fragmented by glitch &mdash; beauty caught between signal and noise.</p></div></article>
+            <article class="paper-card work-card reveal"><div class="art-placeholder">Forest Serenade</div><div class="work-info"><h3>Forest Serenade</h3><p>A steampunk owl singing to glowing flowers. Machines and nature, warm.</p></div></article>
+            <article class="paper-card work-card reveal"><div class="art-placeholder">Reach</div><div class="work-info"><h3>Reach</h3><p>Scale and suspension &mdash; a figure reaching across worlds.</p></div></article>
+            <article class="paper-card work-card reveal"><div class="art-placeholder">Last Train</div><div class="work-info"><h3>Last Train</h3><p>The frantic cartoon panic of almost missing your train.</p></div></article>
+          </div>
+        </div>
+
+        <div class="range-group">
+          <span class="range-label">03 &mdash; Brand &amp; Design</span>
+          <div class="work-grid">
+            <article class="paper-card work-card reveal"><div class="art-placeholder">Antaragni '24 Logo</div><div class="work-info"><h3>Antaragni '24 Logo</h3><p>Global landmarks embedded inside the letterforms of IIT Kanpur's 59th cultural fest.</p></div></article>
+            <article class="paper-card work-card reveal"><div class="art-placeholder">FAC Coordinator Merch</div><div class="work-info"><h3>FAC Coordinator Merch</h3><p>Botanical skeleton in warm gold on black. Merch the team actually wants to wear.</p></div></article>
+            <article class="paper-card work-card reveal"><div class="art-placeholder">Cult Meet 8.0 Sweatshirt</div><div class="work-info"><h3>Cult Meet 8.0 Sweatshirt</h3><p>Six cultural art forms, one figure-8, one vibrant wave. Dec 2025, 23 IITs.</p></div></article>
+            <article class="paper-card work-card reveal"><div class="art-placeholder">Udghosh '24 Jersey</div><div class="work-info"><h3>Udghosh '24 Jersey</h3><p>Sport-coded, hype-ready. The contingent jersey reveal post.</p></div></article>
+            <article class="paper-card work-card reveal"><div class="art-placeholder">Stapati Associates Logo</div><div class="work-info"><h3>Stapati Associates Logo</h3><p>S-letterform embedded in a building elevation. Architecture identity.</p></div></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="scrap-section alt" id="campaign" data-doodles="campaign" aria-labelledby="campaign-title">
+      <div class="doodle-layer" aria-hidden="true"></div>
+      <div class="section-inner">
+        <div class="section-title-wrap">
+          <span class="ghost-number">05</span>
+          <span class="section-kicker">05</span>
+          <h2 class="section-heading" id="campaign-title">Campaign Deep Dive</h2>
+        </div>
+        <p class="section-subtitle"><span class="gold">Antaragni '24 · IIT Kanpur's 59th Annual Cultural Fest</span></p>
+
+        <div class="campaign-layout">
+          <article class="paper-sheet campaign-copy reveal">
+            <span class="washi" style="top:-14px; left:28px; --tilt:-2deg;">dossier</span>
+            Antaragni is one of Asia's largest college cultural festivals &mdash; over 350 colleges, four days, 130,000+ attendees. I designed the judge reveal campaign across Battle Underground, Dramatics, Mr &amp; Ms Antaragni, and Comic Kaun. Every post had to carry 30+ sponsor logos without losing visual punch. No second chances on the timeline.
+            <svg class="mini-doodle" style="--w:72px; right:18px; bottom:16px;" viewBox="0 0 100 100" aria-hidden="true">
+              <path d="M50 10v80M17 31l66 38M83 31 17 69" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
+            </svg>
+          </article>
+
+          <div class="stat-grid">
+            <div class="stat-tile reveal"><span class="stat-number">30+</span><span class="stat-label">Sponsors per post</span></div>
+            <div class="stat-tile reveal"><span class="stat-number">4</span><span class="stat-label">Judge reveal posts</span></div>
+            <div class="stat-tile reveal"><span class="stat-number">350+</span><span class="stat-label">Colleges at Antaragni</span></div>
+            <div class="stat-tile reveal"><span class="stat-number">0</span><span class="stat-label">Room for error</span></div>
+          </div>
+
+          <div class="campaign-posts">
+            <div class="post-placeholder reveal"><span>Battle Underground</span></div>
+            <div class="post-placeholder reveal"><span>Dramatics</span></div>
+            <div class="post-placeholder reveal"><span>Mr &amp; Ms Antaragni</span></div>
+            <div class="post-placeholder reveal"><span>Comic Kaun</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="scrap-section" id="motion" data-doodles="motion" aria-labelledby="motion-title">
+      <div class="doodle-layer" aria-hidden="true"></div>
+      <div class="section-inner">
+        <div class="section-title-wrap">
+          <span class="ghost-number">06</span>
+          <span class="section-kicker">06</span>
+          <h2 class="section-heading" id="motion-title">Motion &amp; AI</h2>
+        </div>
+        <p class="section-subtitle">Where craft meets computation.</p>
+
+        <div class="motion-grid">
+          <article class="paper-card motion-card reveal">
+            <span class="washi" style="top:-9px; right:18px; --tilt:3deg;">cut 01</span>
+            <div class="video-thumb"><span class="play-circle"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M12 8 31 20 12 32Z"/></svg></span></div>
+            <div class="motion-body"><span class="badge">Brand Video</span><h3>AamDhane Wrap 2024</h3><p>Year-end marketing video for a job-placement startup that connected 55,000+ candidates with 100+ companies. Campaign assets from brief to delivery.</p></div>
+          </article>
+          <article class="paper-card motion-card reveal">
+            <span class="washi" style="top:-9px; right:18px; --tilt:-2deg;">cut 02</span>
+            <div class="video-thumb"><span class="play-circle"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M12 8 31 20 12 32Z"/></svg></span></div>
+            <div class="motion-body"><span class="badge">Social Reel</span><h3>FAC Freshers Inferno Intro Reel</h3><p>Self-edited end-to-end as Club Coordinator. Tools: Illustrator, Photoshop, Premiere Pro, Sketchbook, Canva. Scripted, illustrated, and cut by me &mdash; to pull new students straight in.</p></div>
+          </article>
+          <article class="paper-card motion-card reveal">
+            <span class="washi" style="top:-9px; right:18px; --tilt:2deg;">cut 03</span>
+            <div class="video-thumb"><span class="play-circle"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M12 8 31 20 12 32Z"/></svg></span></div>
+            <div class="motion-body"><span class="badge">In Progress · Gold</span><h3>Sola AI Avatar Intro</h3><p>30-second intro video for a conversational AI avatar. Scripted for instant engagement. Working with Kling for frame-to-frame visual consistency.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="scrap-section alt" id="leadership" data-doodles="leadership" aria-labelledby="leadership-title">
+      <div class="doodle-layer" aria-hidden="true"></div>
+      <div class="section-inner">
+        <div class="section-title-wrap">
+          <span class="ghost-number">07</span>
+          <span class="section-kicker">07</span>
+          <h2 class="section-heading" id="leadership-title">Leadership</h2>
+        </div>
+
+        <div class="impact-strip">
+          <div class="paper-card impact-tile reveal"><span class="impact-number">1K+</span><span class="stat-label">Instagram built</span></div>
+          <div class="paper-card impact-tile reveal"><span class="impact-number">Bronze</span><span class="stat-label">Cup at Inter IIT</span></div>
+          <div class="paper-card impact-tile reveal"><span class="impact-number">2&times;</span><span class="stat-label">Inter IIT Cult Meet</span></div>
+          <div class="paper-card impact-tile reveal"><span class="impact-number">3</span><span class="stat-label">Leadership roles</span></div>
+          <div class="paper-card impact-tile reveal"><span class="impact-number">Gold</span><span class="stat-label">National Medal</span></div>
+        </div>
+
+        <div class="timeline">
+          <article class="paper-card timeline-card reveal"><span class="year-tag">2021</span><h3>National Gold Medal, Kalakriti SOA</h3><p>I made "Earth Masked" during the lockdown. The Earth as a face, wearing a mask, a tear tracing the continents. It won the Gold Medal at a national-level competition. First time I understood that a single image can carry what no sentence can.</p></article>
+          <article class="paper-card timeline-card reveal"><span class="year-tag">2024&ndash;25</span><h3>Secretary, Fine Arts, IIT Kanpur Students' Gymkhana</h3><p>Supported IIT Kanpur's cultural programming. Competed as a Fine Arts artist at Inter IIT Cult Meet 7.0. Content creation, social handles, event graphics.</p></article>
+          <article class="paper-card timeline-card reveal"><span class="year-tag">2024&ndash;25</span><h3>Design Secretary, Games &amp; Sports Council</h3><p>Every poster, social post, and the official Udghosh 2024 contingent jersey reveal. Managing design timelines across concurrent sports events while keeping brand consistency intact.</p></article>
+          <article class="paper-card timeline-card reveal"><span class="year-tag">December 2025</span><h3>Inter IIT Cult Meet 8.0 &mdash; Bronze Cup</h3><p>IIT Kanpur hosted 23 IITs across 50+ events over 5 days. I designed the official sweatshirt graphic and competed in Fine Arts. IIT Kanpur brought home the Bronze Cup.</p></article>
+          <article class="paper-card timeline-card reveal"><span class="year-tag">2025&ndash;26</span><h3>Coordinator, Fine Arts Club, IIT Kanpur Students' Gymkhana</h3><p>Grew the club Instagram past 1,000 followers. Managed the club's visual identity, exhibitions, and events. Designed team merch. Led the community.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="scrap-section contact-section" id="contact" data-doodles="contact" aria-labelledby="contact-title">
+      <div class="doodle-layer" aria-hidden="true"></div>
+      <div class="section-inner">
+        <article class="paper-sheet torn-edge closing-sheet reveal">
+          <span class="washi dark" style="top:-16px; left:50%; --tilt:-2deg; transform:translateX(-50%) rotate(var(--tilt));">last page</span>
+          <span class="section-kicker">08</span>
+          <h2 class="closing-quote" id="contact-title">"I'm looking for a team where craft meets speed &mdash; where beautiful and effective aren't two different goals."</h2>
+          <a class="hello-button" href="mailto:hello@sanjay.studio">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16v12H4z" stroke-width="2" stroke-linejoin="round"/><path d="m4 7 8 6 8-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Say Hello
+          </a>
+          <div class="social-lines">
+            <a href="#" aria-label="LinkedIn placeholder">LinkedIn: /in/sanjay-creative</a>
+            <a href="#" aria-label="Behance portfolio placeholder">Behance / Portfolio: sanjay.studio/work</a>
+          </div>
+          <svg class="mini-doodle" style="--w:74px; left:20px; bottom:18px;" viewBox="0 0 100 100" aria-hidden="true">
+            <path d="M16 70 23 31l21 23 12-32 14 32 20-23-7 39H16Z" fill="none" stroke="currentColor" stroke-width="6" stroke-linejoin="round"/>
+            <path d="M20 80h60" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
+          </svg>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const doodles = {
+      pencil: `<svg viewBox="0 0 100 100" aria-hidden="true"><path d="M16 79 69 26l12 12-53 53-17 6 5-18Z" fill="none" stroke="currentColor" stroke-width="6" stroke-linejoin="round"/><path d="m64 30 7-13 12 12-13 7" fill="none" stroke="currentColor" stroke-width="6" stroke-linejoin="round"/><path d="M17 78 29 90" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></svg>`,
+      charcoal: `<svg viewBox="0 0 100 100" aria-hidden="true"><path d="M22 73 65 18c3-4 10 1 7 5L29 80c-4 5-11-1-7-7Z" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"/><path d="M19 82c12-3 21-1 31 5" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><path d="M33 75c9 0 16 2 23 6" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity=".65"/></svg>`,
+      paintbrush: `<svg viewBox="0 0 100 100" aria-hidden="true"><path d="M66 11c9 8 11 18 4 25L31 75c-5 5-14-4-9-9l40-40c-2-7-1-12 4-15Z" fill="none" stroke="currentColor" stroke-width="6" stroke-linejoin="round"/><path d="M23 74c-8 2-13 7-16 16 10-2 17-6 22-12" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"/><path d="M70 13 87 30" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"/></svg>`,
+      star: `<svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 7 58 39 89 27 64 51 91 69 58 64 49 94 42 62 11 74 36 51 12 30 42 39Z" fill="none" stroke="currentColor" stroke-width="5" stroke-linejoin="round"/><path d="M50 18 51 82M19 51h64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity=".75"/></svg>`,
+      asterisk: `<svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 11v78M17 31l66 38M83 31 17 69" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/><path d="M28 16 72 84M72 16 28 84" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" opacity=".7"/></svg>`,
+      swirl: `<svg viewBox="0 0 100 100" aria-hidden="true"><path d="M79 58c-6 20-36 25-53 8-15-15-8-42 14-49 21-6 40 11 35 29-5 17-31 20-40 6-8-13 7-27 20-21 9 4 10 16 2 21" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/></svg>`,
+      palette: `<svg viewBox="0 0 100 100" aria-hidden="true"><path d="M52 12c23 0 39 14 39 34 0 14-9 20-20 19-6 0-8 5-7 10 2 8-5 14-17 13-22-2-38-18-38-39 0-21 18-37 43-37Z" fill="none" stroke="currentColor" stroke-width="6" stroke-linejoin="round"/><circle cx="34" cy="37" r="4" fill="currentColor"/><circle cx="50" cy="29" r="4" fill="currentColor"/><circle cx="66" cy="39" r="4" fill="currentColor"/><circle cx="43" cy="55" r="5" fill="currentColor"/></svg>`,
+      nib: `<svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 10 82 74 50 92 18 74 50 10Z" fill="none" stroke="currentColor" stroke-width="6" stroke-linejoin="round"/><path d="M50 10v44" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/><circle cx="50" cy="59" r="7" fill="none" stroke="currentColor" stroke-width="5"/><path d="M43 66 25 78M57 66l18 12" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></svg>`,
+      film: `<svg viewBox="0 0 100 100" aria-hidden="true"><rect x="16" y="20" width="68" height="60" rx="6" fill="none" stroke="currentColor" stroke-width="6"/><path d="M34 20v60M66 20v60M16 38h18M66 38h18M16 62h18M66 62h18" fill="none" stroke="currentColor" stroke-width="5"/></svg>`,
+      bolt: `<svg viewBox="0 0 100 100" aria-hidden="true"><path d="M58 8 18 55h27L39 92l43-52H55Z" fill="none" stroke="currentColor" stroke-width="7" stroke-linejoin="round"/></svg>`,
+      crown: `<svg viewBox="0 0 100 100" aria-hidden="true"><path d="M16 70 23 31l21 23 12-32 14 32 20-23-7 39H16Z" fill="none" stroke="currentColor" stroke-width="6" stroke-linejoin="round"/><path d="M20 80h60" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"/></svg>`,
+      drop: `<svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 10c15 22 27 37 27 55 0 16-12 27-27 27S23 81 23 65c0-18 12-33 27-55Z" fill="none" stroke="currentColor" stroke-width="6"/><path d="M39 70c2 7 8 11 16 10" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></svg>`,
+      tape: `<svg viewBox="0 0 100 100" aria-hidden="true"><path d="M16 36h68v28H16z" fill="none" stroke="currentColor" stroke-width="6"/><path d="M25 36v28M43 36v28M61 36v28M79 36v28" fill="none" stroke="currentColor" stroke-width="3" stroke-dasharray="4 5"/></svg>`,
+      clip: `<svg viewBox="0 0 100 100" aria-hidden="true"><path d="M33 82V26c0-15 22-15 22 0v45c0 21-33 21-33 0V30" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round"/></svg>`
+    };
+
+    const placements = {
+      hero: [
+        ["pencil", 7, 22, 86, -18, 0.28], ["asterisk", 46, 9, 70, 9, 0.34], ["swirl", 94, 28, 90, 18, 0.24],
+        ["star", 8, 80, 78, 12, 0.3], ["palette", 86, 84, 74, -10, 0.26], ["bolt", 59, 82, 54, 8, 0.24],
+        ["drop", 34, 17, 42, -6, 0.18], ["film", 97, 60, 64, -8, 0.2], ["crown", 18, 47, 54, 10, 0.2],
+        ["tape", 74, 8, 48, 5, 0.16], ["clip", 30, 91, 48, -12, 0.18]
+      ],
+      about: [
+        ["swirl", 4, 25, 92, -10, 0.18], ["paintbrush", 93, 17, 74, 22, 0.26], ["star", 13, 84, 60, -8, 0.34],
+        ["drop", 84, 76, 54, -18, 0.22], ["charcoal", 28, 9, 64, 18, 0.18], ["asterisk", 72, 90, 58, -3, 0.22],
+        ["nib", 5, 58, 48, 11, 0.2], ["tape", 52, 12, 52, 8, 0.18], ["clip", 94, 48, 46, 18, 0.18]
+      ],
+      toolkit: [
+        ["palette", 94, 20, 76, 12, 0.25], ["pencil", 8, 28, 78, 24, 0.24], ["bolt", 53, 10, 52, -9, 0.2],
+        ["film", 89, 84, 70, -14, 0.2], ["star", 10, 86, 70, 8, 0.3], ["swirl", 43, 90, 80, 4, 0.17],
+        ["drop", 75, 12, 42, 12, 0.18], ["clip", 28, 10, 48, -14, 0.16]
+      ],
+      experience: [
+        ["crown", 7, 20, 72, -10, 0.27], ["film", 93, 24, 76, 8, 0.22], ["swirl", 96, 77, 88, -8, 0.24],
+        ["palette", 10, 79, 74, -18, 0.24], ["asterisk", 51, 88, 62, 11, 0.24], ["nib", 67, 14, 52, 14, 0.2],
+        ["tape", 36, 18, 52, 4, 0.18], ["clip", 82, 89, 42, 20, 0.17]
+      ],
+      range: [
+        ["paintbrush", 94, 18, 78, 18, 0.24], ["star", 7, 20, 72, 4, 0.3], ["charcoal", 5, 52, 82, -28, 0.22],
+        ["swirl", 94, 54, 84, 10, 0.2], ["bolt", 72, 9, 56, -12, 0.24], ["drop", 16, 92, 50, 7, 0.21],
+        ["asterisk", 82, 92, 68, -8, 0.24], ["palette", 49, 4, 50, 10, 0.17], ["tape", 30, 46, 46, -5, 0.15]
+      ],
+      campaign: [
+        ["film", 6, 22, 86, -8, 0.26], ["star", 92, 17, 76, 16, 0.26], ["bolt", 94, 72, 62, -12, 0.22],
+        ["pencil", 11, 84, 74, 14, 0.24], ["swirl", 49, 92, 86, -8, 0.16], ["drop", 72, 12, 46, 0, 0.2],
+        ["crown", 28, 13, 50, -10, 0.19], ["clip", 83, 45, 44, 10, 0.16]
+      ],
+      motion: [
+        ["film", 93, 20, 88, 12, 0.28], ["bolt", 8, 22, 66, 9, 0.28], ["asterisk", 52, 10, 60, -10, 0.22],
+        ["drop", 92, 84, 56, 11, 0.22], ["swirl", 7, 82, 80, -8, 0.2], ["nib", 74, 84, 54, 18, 0.19],
+        ["tape", 27, 13, 48, -8, 0.16], ["palette", 45, 88, 48, 10, 0.16]
+      ],
+      leadership: [
+        ["crown", 92, 16, 76, 12, 0.3], ["star", 9, 18, 74, -8, 0.28], ["palette", 95, 70, 68, -20, 0.2],
+        ["paintbrush", 7, 72, 84, 14, 0.22], ["swirl", 52, 94, 90, 10, 0.15], ["asterisk", 77, 7, 52, 8, 0.2],
+        ["charcoal", 29, 8, 58, -15, 0.18], ["clip", 88, 91, 46, 18, 0.17]
+      ],
+      contact: [
+        ["star", 7, 16, 80, -6, 0.36], ["asterisk", 91, 15, 82, 8, 0.36], ["swirl", 10, 70, 98, 18, 0.28],
+        ["palette", 87, 72, 74, -12, 0.26], ["paintbrush", 26, 16, 74, 21, 0.26], ["film", 75, 24, 68, -8, 0.22],
+        ["bolt", 20, 86, 58, 10, 0.26], ["drop", 58, 13, 48, -7, 0.24], ["nib", 40, 88, 60, -18, 0.21],
+        ["crown", 63, 78, 60, 12, 0.22], ["pencil", 96, 45, 64, -20, 0.2], ["charcoal", 5, 42, 60, 24, 0.21],
+        ["tape", 50, 6, 54, 2, 0.2], ["clip", 94, 88, 48, -12, 0.18]
+      ]
+    };
+
+    document.querySelectorAll("[data-doodles]").forEach((section) => {
+      const layer = section.querySelector(".doodle-layer");
+      const set = placements[section.dataset.doodles] || [];
+      set.forEach(([type, x, y, size, rot, op]) => {
+        const node = document.createElement("div");
+        node.className = "doodle";
+        node.style.setProperty("--x", `${x}%`);
+        node.style.setProperty("--y", `${y}%`);
+        node.style.setProperty("--s", `${size}px`);
+        node.style.setProperty("--r", `${rot}deg`);
+        node.style.setProperty("--o", op);
+        node.innerHTML = doodles[type];
+        layer.appendChild(node);
+      });
+    });
+
+    const revealItems = document.querySelectorAll(".reveal");
+    revealItems.forEach((el, index) => {
+      el.style.setProperty("--delay", `${Math.min((index % 6) * 70, 350)}ms`);
+    });
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.14 });
+
+    revealItems.forEach((el) => revealObserver.observe(el));
+
+    const navLinks = document.querySelector(".nav-links");
+    const menuToggle = document.querySelector(".menu-toggle");
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("is-open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+      document.body.classList.toggle("menu-open", isOpen);
+    });
+
+    navLinks.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("is-open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open menu");
+        document.body.classList.remove("menu-open");
+      });
+    });
+
+    const activeObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        document.querySelectorAll("[data-link]").forEach((link) => {
+          link.classList.toggle("active", link.dataset.link === entry.target.id);
+        });
+      });
+    }, { rootMargin: "-38% 0px -55% 0px", threshold: 0 });
+
+    ["about", "toolkit", "experience", "range", "contact"].forEach((id) => {
+      const section = document.getElementById(id);
+      if (section) activeObserver.observe(section);
+    });
+  </script>
+</body>
+</html>
