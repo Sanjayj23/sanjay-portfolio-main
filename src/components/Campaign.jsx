@@ -39,14 +39,15 @@ export function Campaign() {
 
         <div className="campaign-posts">
           {campaignPosts.map((post, index) => (
-            <div className="post-placeholder paper-hover" key={post.label}>
+          <div className="post-placeholder paper-hover" key={post.label}>
               <MiniDoodle variant="zigzag" className="post-zigzag" size="48px" white />
               <span className="post-index">0{index + 1}</span>
               {post.imageUrl ? (
                 <LazyImage
                   src={post.imageUrl}
                   alt={post.label}
-                  style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                  className="post-image"
+                  style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", display: "block", zIndex: 2 }}
                 />
               ) : (
                 <span>{post.label}</span>

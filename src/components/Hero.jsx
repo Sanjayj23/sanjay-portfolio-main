@@ -21,8 +21,8 @@ export function Hero() {
           >
             Portfolio
           </motion.h1>
-          <p className="hero-role">Creative Generalist</p>
-          <p className="hero-subtitle">&amp; Visual Storyteller</p>
+          <p className="hero-role">Artist · Designer · Brand Identity</p>
+          <p className="hero-subtitle">& Motion & AI Creator</p>
           <div className="ribbon">From charcoal on paper to AI-generated frames.</div>
           <div className="hero-meta">
             <span>IIT Kanpur, India</span>
