@@ -1907,6 +1907,13 @@
   .work-grid-balanced > .work-card:nth-child(5) {
     grid-column: auto;
   }
+
+  .about-paper .hand-note {
+    position: static !important;
+    display: inline-block;
+    margin-bottom: 0.8rem;
+    transform: rotate(-1.5deg) !important;
+  }
 }
 
 @media (max-width: 480px) {

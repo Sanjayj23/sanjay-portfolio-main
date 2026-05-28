@@ -18,7 +18,7 @@ export const chips = [
 ];
 
 const HERO_URL = "https://i.ibb.co/YBbfCPcX/Chat-GPT-Image-May-27-2026-03-48-52-PM.png";
-const MANIFESTO_URL = "https://i.ibb.co/xSpRN2Q3/Whats-App-Image-2026-05-27-at-10-24-39-PM.jpg";
+const MANIFESTO_URL = "https://i.postimg.cc/wj3RHx9p/Whats-App-Image-2026-05-27-at-10-24-39-PM.jpg";
 
 export const heroPortrait = {
   src: HERO_URL,
@@ -124,32 +124,32 @@ export const workGroups = [
     label: "01 - Traditional Art",
     columns: "work-grid",
     works: [
-      ["Shiva & Parvati", "A detailed charcoal study capturing the duality of Shiva and Parvati on a single sheet. Focuses on the balance of stillness and expression using soft shadows and fine texturing.", "https://i.ibb.co/6RYQV2t4/Chat-GPT-Image-May-27-2026-07-11-10-PM.png"],
-      ["Crosshatch Portrait Study", "A ballpoint pen portrait created entirely with cross-hatching. Built over several hours using thousands of individual pen strokes to capture realistic light and skin texture.", "https://i.ibb.co/spCPKkrJ/Chat-GPT-Image-May-27-2026-07-15-08-PM.png"],
-      ["The Embrace", "A quick charcoal sketch in my sketchbook exploring form and negative space. Focuses on the emotional weight of a shared moment through raw, smudged textures.", "https://i.ibb.co/3ms9rjPy/Chat-GPT-Image-May-27-2026-07-17-57-PM.png"],
-      ["Blindfolded", "A conceptual charcoal portrait featuring a stark white band across the eyes. It plays with high-contrast values to emphasize internal expression over sight.", "https://i.ibb.co/Kj6Wv1Fc/Chat-GPT-Image-May-27-2026-07-22-31-PM.png"],
-      ["Portrait Dissolution", "A hyperrealistic charcoal drawing where the subject's face begins to dissolve into abstract patterns, experimenting with texture, contrast, and structure.", "https://i.ibb.co/1fKBrq9Y/Chat-GPT-Image-May-27-2026-07-24-30-PM.png"],
+      ["Shiva & Parvati", "A detailed charcoal study capturing the duality of Shiva and Parvati on a single sheet. Focuses on the balance of stillness and expression using soft shadows and fine texturing.", "https://i.postimg.cc/c1XJHq94/Chat-GPT-Image-May-27-2026-07-11-10-PM.png"],
+      ["Crosshatch Portrait Study", "A ballpoint pen portrait created entirely with cross-hatching. Built over several hours using thousands of individual pen strokes to capture realistic light and skin texture.", "https://i.postimg.cc/mrYLWKzj/Chat-GPT-Image-May-27-2026-07-15-08-PM.png"],
+      ["The Embrace", "A quick charcoal sketch in my sketchbook exploring form and negative space. Focuses on the emotional weight of a shared moment through raw, smudged textures.", "https://i.postimg.cc/Gh4bm4T2/Chat-GPT-Image-May-27-2026-07-17-57-PM.png"],
+      ["Blindfolded", "A conceptual charcoal portrait featuring a stark white band across the eyes. It plays with high-contrast values to emphasize internal expression over sight.", "https://i.postimg.cc/8cjgcYcN/Chat-GPT-Image-May-27-2026-07-22-31-PM.png"],
+      ["Portrait Dissolution", "A hyperrealistic charcoal drawing where the subject's face begins to dissolve into abstract patterns, experimenting with texture, contrast, and structure.", "https://i.postimg.cc/LX8rQWzB/Chat-GPT-Image-May-27-2026-07-24-30-PM.png"],
     ],
   },
   {
     label: "02 - Digital Illustration",
     columns: "work-grid four",
     works: [
-      ["Signal & Static", "A digital artwork depicting a butterfly dissolving into digital glitch and pixel art. Recreated in Procreate to blend organic shapes with technological disruption.", "https://i.ibb.co/RqkJVd1/4.png"],
-      ["Forest Serenade", "A digital painting of a mechanical steampunk owl resting among bioluminescent flowers. Explores the intersection of mechanical details and soft, organic lighting.", "https://i.ibb.co/wNK2Yvs5/4th.png"],
-      ["The Reach", "A high-contrast digital illustration of a figure bridging a vast canyon under a starry sky, emphasizing scale, depth, and human aspiration.", "https://i.ibb.co/xtXzM76L/art.png"],
-      ["Catching the Last Train", "A colorful, character-driven digital illustration capturing the chaotic rush of catching the last train, focusing on expressive anatomy and dynamic motion.", "https://i.ibb.co/3mNFgDtB/Untitled-Artwork-3-1.png"],
+      ["Signal & Static", "A digital artwork depicting a butterfly dissolving into digital glitch and pixel art. Recreated in Procreate to blend organic shapes with technological disruption.", "https://i.postimg.cc/prncgMyW/4.png"],
+      ["Forest Serenade", "A digital painting of a mechanical steampunk owl resting among bioluminescent flowers. Explores the intersection of mechanical details and soft, organic lighting.", "https://i.postimg.cc/SK1h4qQD/4th.png"],
+      ["The Reach", "A high-contrast digital illustration of a figure bridging a vast canyon under a starry sky, emphasizing scale, depth, and human aspiration.", "https://i.postimg.cc/RV1xFwVS/art.png"],
+      ["Catching the Last Train", "A colorful, character-driven digital illustration capturing the chaotic rush of catching the last train, focusing on expressive anatomy and dynamic motion.", "https://i.postimg.cc/P52GbhDr/Untitled-Artwork-3-(1).png"],
     ],
   },
   {
     label: "03 - Brand & Design",
     columns: "work-grid",
     works: [
-      ["Antaragni '24 Logo", "The official logo and visual identity for Antaragni '24, IIT Kanpur's annual cultural festival. The custom typography incorporates global landmarks to represent that year's theme of global tourism, serving as the core branding across all digital and print media.", "https://i.ibb.co/cSMXxfXR/Chat-GPT-Image-May-27-2026-07-35-31-PM.png"],
-      ["Fine Arts Club Official Merch", "Merchandise design for the Fine Arts Club at IIT Kanpur. Features a custom gold botanical illustration printed on black fabric, blending natural forms with a minimalist, wearable layout.", "https://i.ibb.co/PZY4Nzfc/3.png"],
-      ["Cult Meet 8.0 Sweatshirt", "Contingent sweatshirt design for IIT Kanpur at the Inter IIT Cultural Meet 8.0. Integrates six distinct cultural arts into a dynamic representation of the number 8, representing unity and competition.", "https://i.ibb.co/Rp5C8Wnc/IMG-20260217-WA0007.jpg"],
-      ["Udghosh '24 Jersey", "Official sports jersey design for the IIT Kanpur contingent at Udghosh '24, the annual sports festival. Built around athletic aesthetics, custom sublimated patterns, and clean typography.", "https://i.ibb.co/gZN797st/The-wait-is-over-Presenting-the-official-Udghosh-2024-jersey-where-passion-meets-performanc.jpg"],
-      ["Stapati Associates Logo", "A clean brand identity for Stapati Associates, an architectural firm. The logo integrates the letter 'S' into a minimalist architectural elevation blueprint.", "https://i.ibb.co/zhX6MfLq/IMG-20210821-WA0028.jpg"],
+      ["Antaragni '24 Logo", "The official logo and visual identity for Antaragni '24, IIT Kanpur's annual cultural festival. The custom typography incorporates global landmarks to represent that year's theme of global tourism, serving as the core branding across all digital and print media.", "https://i.postimg.cc/zvn6y15q/Chat-GPT-Image-May-27-2026-07-35-31-PM.png"],
+      ["Fine Arts Club Official Merch", "Merchandise design for the Fine Arts Club at IIT Kanpur. Features a custom gold botanical illustration printed on black fabric, blending natural forms with a minimalist, wearable layout.", "https://i.postimg.cc/8zy3J481/3.png"],
+      ["Cult Meet 8.0 Sweatshirt", "Contingent sweatshirt design for IIT Kanpur at the Inter IIT Cultural Meet 8.0. Integrates cultural arts into a dynamic representation of the number 8, representing unity and competition.", "https://i.postimg.cc/d3mNqmmV/IMG-20260217-WA0007.jpg"],
+      ["Udghosh '24 Jersey", "Official sports jersey design for the IIT Kanpur contingent at Udghosh '24, the annual sports festival. Built around athletic aesthetics, custom sublimated patterns, and clean typography.", "https://i.postimg.cc/4NP2qPx5/The-wait-is-over-Presenting-the-official-Udghosh-2024-jersey-where-passion-meets-performanc.jpg"],
+      ["Stapati Associates Logo", "A clean brand identity for Stapati Associates, an architectural firm. The logo integrates the letter 'S' into a minimalist architectural elevation blueprint.", "https://i.postimg.cc/5y1pkQcp/IMG-20210821-WA0028.jpg"],
     ],
   },
 ];
@@ -162,10 +162,10 @@ export const campaignStats = [
 ];
 
 export const campaignPosts = [
-  { label: "Battle Underground", imageUrl: "https://i.ibb.co/jkphNBsy/1-REBEL-7.png" },
-  { label: "Dramatics", imageUrl: "https://i.ibb.co/ycQ3bYVF/4-Denisha-ghumra.png" },
-  { label: "Mr & Ms Antaragni", imageUrl: "https://i.ibb.co/kgYJTFpp/Whats-App-Image-2024-10-16-at-02-38-28.jpg" },
-  { label: "Comic Kaun", imageUrl: "https://i.ibb.co/ynvr56bg/Whats-App-Image-2024-10-19-at-18-30-30.jpg" },
+  { label: "Battle Underground", imageUrl: "https://i.postimg.cc/52H5gSYX/1-REBEL-7.png" },
+  { label: "Dramatics", imageUrl: "https://i.postimg.cc/3NJmvX5z/4-Denisha-ghumra.png" },
+  { label: "Mr & Ms Antaragni", imageUrl: "https://i.postimg.cc/8PYM7fK8/Whats-App-Image-2024-10-16-at-02-38-28.jpg" },
+  { label: "Comic Kaun", imageUrl: "https://i.postimg.cc/B6J1rT6H/Whats-App-Image-2024-10-19-at-18-30-30.jpg" },
 ];
 
 export const motionCards = [
